@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>test</title>
+
   <style>
     body {
       margin: 0;
@@ -16,11 +17,59 @@
     canvas {
       image-rendering: pixelated;
     }
+
+    #controls {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      display: flex;
+      gap: 12px;
+    }
+
+    #controls button {
+      width: 96px;
+      height: 96px;
+      font-size: 32px;
+    }
+
+#charSwitch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+#switchBtn {
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+    #game {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: #eee;
+      overflow: hidden;
+    }
+
+
+
   </style>
 </head>
 <body>
+
   <canvas id="game"></canvas>
 
+  <div id="controls">
+    <button id="left">◀</button>
+    <button id="right">▶</button>
+  </div>
+
+  <div id="charSwitch">
+    <button id="switchBtn">キャラ切替</button>
+  </div>
+
   <script src="main.js"></script>
+
 </body>
 </html>
