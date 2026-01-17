@@ -40,14 +40,23 @@ document.getElementById("switchBtn").addEventListener("click", () => {
 
 // リサイズ
 function resize() {
+function resize() {
   const screenW = window.innerWidth;
   const screenH = window.innerHeight;
 
-  const scale = Math.floor(Math.min(screenW / BASE_WIDTH, screenH / BASE_HEIGHT));
+  // 画面サイズに合わせて、比率(6:4)を維持できる最大のスケールを計算
+  // 整数倍(Math.floor)にするとドットが綺麗ですが、画面にぴったり合わせるならfloorを外します
+  const scaleW = screenW / RATIO_W;
+  const scaleH = screenH / RATIO_H;
+  const scale = Math.floor(Math.min(scaleW, scaleH)); 
 
-  canvas.width = BASE_WIDTH * scale;
-  canvas.height = BASE_HEIGHT * scale;
-  currentScale = scale;
+  // 比率に基づいたキャンバスサイズを設定
+  canvas.width = RATIO_W * scale;
+  canvas.height = RATIO_H * scale;
+  
+  // ゲーム内解像度(64x48など)に対するスケール比率を保持
+  // ここでは BASE_WIDTH を基準にスケールを算出
+  currentScale = canvas.width / BASE_WIDTH;
 
   ctx.imageSmoothingEnabled = false;
   draw();
