@@ -1,0 +1,8 @@
+{
+  "name": "マサ",
+  "idle": {
+    "frameWidth": 64,
+    "frameHeight": 64,
+    "frames": 6,
+    "speed": 10
+  }
